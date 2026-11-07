@@ -1,0 +1,25 @@
+gestures:                 # gesto -> acción
+  swipe_derecha: next_window
+  swipe_izquierda: prev_window
+  swipe_arriba: overview
+  swipe_abajo: minimize
+  agarrar: close_window
+
+# Cada acción puede definirse por sistema. Orden de búsqueda:
+#   linux_wayland (solo en Wayland) -> windows | linux -> all
+# Tipos:  keys: "alt+f4"  |  alt_tab: forward/backward  |  cmd: "comando externo"
+actions:
+  next_window:
+    all: {alt_tab: forward}
+  prev_window:
+    all: {alt_tab: backward}
+  overview:
+    windows: {keys: "win+tab"}
+    linux: {keys: "meta+w"}            # KDE Plasma: Vista general. En GNOME usa "meta"
+  minimize:
+    windows: {keys: "win+down"}        # en ventana maximizada, la primera vez solo la restaura
+    linux: {cmd: "xdotool getactivewindow windowminimize"}         # X11 (sudo pacman -S xdotool)
+    linux_wayland: {cmd: "kdotool getactivewindow windowminimize"}  # KDE Wayland (kdotool)
+  close_window:
+    windows: {keys: "alt+f4"}
+    linux: {keys: "alt+f4"}

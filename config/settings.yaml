@@ -1,0 +1,36 @@
+# Gesture Control - configuración (editable a mano o desde la interfaz)
+system:
+  backend: auto            # auto | pynput | ydotool   (auto: Wayland -> ydotool, resto -> pynput)
+camera:
+  index: 0
+  width: 640
+  height: 480
+  mirror: true             # vista tipo espejo: swipe derecha = mano hacia la derecha
+sequence:
+  clip_seconds: 1.5        # duración de cada clip y de la ventana de análisis en vivo
+  steps: 30                # pasos tras remuestrear (entrada del modelo)
+gestures:
+  - swipe_derecha
+  - swipe_izquierda
+  - swipe_arriba
+  - swipe_abajo
+  - agarrar
+  - ninguno
+dataset:
+  min_clips_per_gesture: 30
+  min_valid_ratio: 0.6     # mínimo de frames con mano detectada para aceptar un clip
+  val_ratio: 0.15
+  test_ratio: 0.15
+  seed: 42
+training:
+  epochs: 60
+  batch_size: 32
+  aug_factor: 8            # copias aumentadas por clip de entrenamiento
+inference:
+  predict_every: 3         # predecir cada N frames
+  threshold: 0.85
+  destructive_threshold: 0.95
+  votes: 2                 # predicciones consecutivas iguales antes de actuar (+1 en acciones destructivas)
+  cooldown: 1.0            # segundos entre acciones
+  min_hand_ratio: 0.7      # mínimo de frames con mano en la ventana para predecir
+  alt_hold_seconds: 1.2    # tiempo que se mantiene Alt pulsado para encadenar swipes

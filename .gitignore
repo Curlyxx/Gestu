@@ -1,0 +1,56 @@
+# Entorno virtual
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Videos originales: ignorar contenido, conservar .gitkeep
+data/raw_videos/agarrar/*
+!data/raw_videos/agarrar/.gitkeep
+
+data/raw_videos/ninguno/*
+!data/raw_videos/ninguno/.gitkeep
+
+data/raw_videos/swipe_abajo/*
+!data/raw_videos/swipe_abajo/.gitkeep
+
+data/raw_videos/swipe_arriba/*
+!data/raw_videos/swipe_arriba/.gitkeep
+
+data/raw_videos/swipe_derecha/*
+!data/raw_videos/swipe_derecha/.gitkeep
+
+data/raw_videos/swipe_izquierda/*
+!data/raw_videos/swipe_izquierda/.gitkeep
+
+# Landmarks
+data/landmarks/agarrar/*
+!data/landmarks/agarrar/.gitkeep
+
+data/landmarks/ninguno/*
+!data/landmarks/ninguno/.gitkeep
+
+data/landmarks/swipe_abajo/*
+!data/landmarks/swipe_abajo/.gitkeep
+
+data/landmarks/swipe_arriba/*
+!data/landmarks/swipe_arriba/.gitkeep
+
+data/landmarks/swipe_derecha/*
+!data/landmarks/swipe_derecha/.gitkeep
+
+data/landmarks/swipe_izquierda/*
+!data/landmarks/swipe_izquierda/.gitkeep
+
+# Splits
+data/splits/*
+!data/splits/.gitkeep
+
+# Modelos
+models/*
+!models/hand_landmarker.task
+
+# Runtime
+runtime/*
+!runtime/.gitkeep
