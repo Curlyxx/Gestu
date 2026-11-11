@@ -65,7 +65,7 @@ def readiness(settings, cam=None):
 
     low = [f"{r['gesture']} {r['clips']}/{minc}" for r in rows if r["clips"] < minc]
     checks.append(("Datos de gestos", not low,
-                   "suficientes" if not low else "faltan clips → " + ", ".join(low), True))
+                   "suficientes" if not low else "faltan clips: " + ", ".join(low), True))
 
     vids = sum(r["pending_videos"] for r in rows)
     checks.append(("Videos por importar", vids == 0,
@@ -75,7 +75,7 @@ def readiness(settings, cam=None):
            if r["unsplit"] or min(r["train"], r["val"], r["test"]) < 1]
     ok_split = SPLITS_FILE.exists() and not bad
     checks.append(("Train / val / test", ok_split,
-                   "dividido" if ok_split else "falta (re)construir el dataset → "
+                   "dividido" if ok_split else "falta (re)construir el dataset: "
                    + (", ".join(bad) if bad else "sin splits"), True))
 
     labels = read_json(LABELS_FILE)

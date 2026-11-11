@@ -28,5 +28,5 @@ def describe(info, backend):
             extra += f" · {info['desktop']}"
     text = f"{name}{extra} · Python {info['python']} · backend de acciones: {backend}"
     if info["system"] == "linux" and info["wayland"] and backend == "pynput":
-        text += "\n⚠ Wayland: pynput no puede enviar teclas. Instala ydotool (ver README) o inicia sesión en X11."
+        text += "\nAviso Wayland: pynput no puede enviar teclas. Instala ydotool (ver README) o inicia sesión en X11."
     return text
